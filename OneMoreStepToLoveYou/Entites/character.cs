@@ -12,18 +12,16 @@ namespace OneMoreStepToLoveYou.Entites
         public Sprite sprite;
         public gridPosition m_gridPosition;
         private Vector2 targetPosition;
-        private int moveSpeed = 10;
+        private int moveSpeed = 8;
         public bool is_move = false;
+        public gridType type;
 
         public void moveLeft()
         {
             if (m_gridPosition.column <= 0 || gameManager.GRID_DATA[m_gridPosition.left.row, m_gridPosition.left.column].type == gridType.Unwalkable)
                 return;
 
-            m_gridPosition = m_gridPosition.left;
-            is_move = true;
-            targetPosition = gameManager.GRID_DATA[m_gridPosition.row, m_gridPosition.column].getCenterGridPosition;
-            targetPosition -= kaninKitRail.getCenterPoint(sprite.gameSprite.Width, sprite.gameSprite.Height);
+            changePosition(m_gridPosition.left);
         }
 
         public void moveRight()
@@ -31,10 +29,7 @@ namespace OneMoreStepToLoveYou.Entites
             if (m_gridPosition.column >= gameManager.GRID_COLUMN - 1 || gameManager.GRID_DATA[m_gridPosition.right.row, m_gridPosition.right.column].type == gridType.Unwalkable)
                 return;
 
-            m_gridPosition = m_gridPosition.right;
-            is_move = true;
-            targetPosition = gameManager.GRID_DATA[m_gridPosition.row, m_gridPosition.column].getCenterGridPosition;
-            targetPosition -= kaninKitRail.getCenterPoint(sprite.gameSprite.Width, sprite.gameSprite.Height);
+            changePosition(m_gridPosition.right);
         }
 
         public void moveUp()
@@ -42,10 +37,7 @@ namespace OneMoreStepToLoveYou.Entites
             if (m_gridPosition.row <= 0 || gameManager.GRID_DATA[m_gridPosition.up.row, m_gridPosition.up.column].type == gridType.Unwalkable)
                 return;
 
-            m_gridPosition = m_gridPosition.up;
-            is_move = true;
-            targetPosition = gameManager.GRID_DATA[m_gridPosition.row, m_gridPosition.column].getCenterGridPosition;
-            targetPosition -= kaninKitRail.getCenterPoint(sprite.gameSprite.Width, sprite.gameSprite.Height);
+            changePosition(m_gridPosition.up);
         }
 
         public void moveDown()
@@ -53,7 +45,14 @@ namespace OneMoreStepToLoveYou.Entites
             if (m_gridPosition.row >= gameManager.GRID_ROW - 1 || gameManager.GRID_DATA[m_gridPosition.down.row, m_gridPosition.down.column].type == gridType.Unwalkable)
                 return;
 
-            m_gridPosition = m_gridPosition.down;
+            changePosition(m_gridPosition.down);
+        }
+
+        private void changePosition(gridPosition pos)
+        {
+            gameManager.GRID_DATA[m_gridPosition.row, m_gridPosition.column].type = gridType.Walkable;
+            m_gridPosition = pos;
+            gameManager.GRID_DATA[m_gridPosition.row, m_gridPosition.column].type = this.type;
             is_move = true;
             targetPosition = gameManager.GRID_DATA[m_gridPosition.row, m_gridPosition.column].getCenterGridPosition;
             targetPosition -= kaninKitRail.getCenterPoint(sprite.gameSprite.Width, sprite.gameSprite.Height);
@@ -63,11 +62,13 @@ namespace OneMoreStepToLoveYou.Entites
         {
             //sprite.position = gameManager.GRID_DATA[m_gridPosition.row, m_gridPosition.column].getCenterGridPosition;
             //sprite.position -= kaninKitRail.getCenterPoint(sprite.gameSprite.Width, sprite.gameSprite.Height);
+
             if (is_move)
             {
-                if(Vector2.Distance(sprite.position, targetPosition) <= 1)
+                if(Vector2.Distance(sprite.position, targetPosition) <= 5f)
                 {
                     is_move = false;
+                    sprite.position = targetPosition;
                     return;
                 }
                 Vector2 diration = targetPosition - sprite.position;

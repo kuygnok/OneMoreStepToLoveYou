@@ -12,6 +12,7 @@ namespace OneMoreStepToLoveYou
         SpriteBatch spriteBatch;
 
         I_sceneManager scene = new I_sceneManager();
+        text debugText;
 
         public Game1()
         {
@@ -33,6 +34,9 @@ namespace OneMoreStepToLoveYou
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            //debug texts
+            debugText = new text(Content.Load<SpriteFont>("debugFont"), Color.Black, Vector2.Zero);
 
             //grid
             scene.entites.Add(new I_gridBox(5, 10, Content.Load<SpriteFont>("debugFont"), graphics));
@@ -74,6 +78,17 @@ namespace OneMoreStepToLoveYou
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             scene.Draw(spriteBatch);
+
+            string debugMessege = "";
+            for (int i = 0; i < gameManager.GRID_ROW; i++)
+            {
+                for (int j = 0; j < gameManager.GRID_COLUMN; j++)
+                {
+                    debugMessege += gameManager.GRID_DATA[i, j].type.ToString() + "   | ";
+                }
+                debugMessege += "\n";
+            }
+            debugText.drawFont(spriteBatch, debugMessege);
             spriteBatch.End();
             base.Draw(gameTime);
         }

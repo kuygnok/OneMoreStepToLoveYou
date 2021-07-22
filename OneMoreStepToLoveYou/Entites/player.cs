@@ -16,8 +16,10 @@ namespace OneMoreStepToLoveYou.Entites
 
         public player(Texture2D texture, gridPosition gridPos)
         {
+            this.type = gridType.Player;
             sprite = new Sprite(texture, Vector2.Zero, Color.White);
             m_gridPosition = gridPos;
+            gameManager.GRID_DATA[m_gridPosition.row, m_gridPosition.column].type = gridType.Player;
             sprite.position = gameManager.GRID_DATA[m_gridPosition.row, m_gridPosition.column].getCenterGridPosition;
             sprite.position -= kaninKitRail.getCenterPoint(sprite.gameSprite.Width, sprite.gameSprite.Height);
         }
