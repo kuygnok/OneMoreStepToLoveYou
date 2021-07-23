@@ -73,6 +73,11 @@ namespace OneMoreStepToLoveYou.Entites
         //call when player move
         public static void playerMove()
         {
+            var temp = crowds.Values.ToArray();
+            foreach (var item in temp)
+            {
+                item.goBack();
+            }
             playerStep += 1;
         }
 

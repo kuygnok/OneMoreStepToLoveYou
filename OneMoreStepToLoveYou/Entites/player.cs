@@ -39,6 +39,8 @@ namespace OneMoreStepToLoveYou.Entites
                     )
                 {
                     //crowd move
+                    gameManager.crowds[m_gridPosition.left].originPath.Add(m_gridPosition.left);
+                    gameManager.crowds[m_gridPosition.left].m_moveStep = gameManager.playerStep;
                     gameManager.crowds[m_gridPosition.left].moveLeft();
                     moveLeft();
                     gameManager.crowds[m_gridPosition.left].m_moveStep = gameManager.playerStep;
@@ -55,6 +57,8 @@ namespace OneMoreStepToLoveYou.Entites
                     )
                 {
                     //crowd move
+                    gameManager.crowds[m_gridPosition.right].originPath.Add(m_gridPosition.right);
+                    gameManager.crowds[m_gridPosition.right].m_moveStep = gameManager.playerStep;
                     gameManager.crowds[m_gridPosition.right].moveRight();
                     moveRight();
                     gameManager.crowds[m_gridPosition.right].m_moveStep = gameManager.playerStep;
@@ -71,6 +75,8 @@ namespace OneMoreStepToLoveYou.Entites
                     )
                 {
                     //crowd move
+                    gameManager.crowds[m_gridPosition.down].originPath.Add(m_gridPosition.down);
+                    gameManager.crowds[m_gridPosition.down].m_moveStep = gameManager.playerStep;
                     gameManager.crowds[m_gridPosition.down].moveDown();
                     moveDown();
                     gameManager.crowds[m_gridPosition.down].m_moveStep = gameManager.playerStep;
@@ -87,6 +93,8 @@ namespace OneMoreStepToLoveYou.Entites
                     )
                 {
                     //crowd move
+                    gameManager.crowds[m_gridPosition.up].originPath.Add(m_gridPosition.up);
+                    gameManager.crowds[m_gridPosition.up].m_moveStep = gameManager.playerStep;
                     gameManager.crowds[m_gridPosition.up].moveUp();
                     moveUp();
                     gameManager.crowds[m_gridPosition.up].m_moveStep = gameManager.playerStep;
@@ -98,8 +106,8 @@ namespace OneMoreStepToLoveYou.Entites
 
         public override void changePosition(gridPosition pos)
         {
-            gameManager.playerMove();
             base.changePosition(pos);
+            gameManager.playerMove();
         }
 
         public void Draw(SpriteBatch spriteBatch)
