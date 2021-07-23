@@ -48,7 +48,7 @@ namespace OneMoreStepToLoveYou.Entites
             changePosition(m_gridPosition.down);
         }
 
-        private void changePosition(gridPosition pos)
+        public virtual void changePosition(gridPosition pos)
         {
             gameManager.GRID_DATA[m_gridPosition.row, m_gridPosition.column].type = gridType.Walkable;
             m_gridPosition = pos;

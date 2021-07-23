@@ -51,8 +51,13 @@ namespace OneMoreStepToLoveYou
             gameManager.addShadowArea(3, 2);
             gameManager.addShadowArea(3, 3);
             //player
-            scene.entites.Add(new player(Content.Load<Texture2D>("Player"), new gridPosition(6, 2)));
+            scene.entites.Add(new player(Content.Load<Texture2D>("Player"), new gridPosition(5, 2)));
             scene.entites[1].DrawOrder = 2;
+            //crowd
+            scene.entites.Add(new crowd(Content.Load<Texture2D>("Player"), new gridPosition(7, 2)));
+            scene.entites[2].DrawOrder = 2;
+            scene.entites.Add(new crowd(Content.Load<Texture2D>("Player"), new gridPosition(8, 2)));
+            scene.entites[3].DrawOrder = 2;
             // TODO: use this.Content to load your game content here
         }
 
@@ -88,6 +93,7 @@ namespace OneMoreStepToLoveYou
                 }
                 debugMessege += "\n";
             }
+            debugMessege += "\n\n\n\n" + gameManager.playerStep;
             debugText.drawFont(spriteBatch, debugMessege);
             spriteBatch.End();
             base.Draw(gameTime);

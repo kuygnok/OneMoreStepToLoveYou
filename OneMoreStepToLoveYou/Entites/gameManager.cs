@@ -59,12 +59,22 @@ namespace OneMoreStepToLoveYou.Entites
     public static class gameManager
     {
         //grid
+        public static Dictionary<gridPosition, crowd> crowds = new Dictionary<gridPosition, crowd>();
         public static Vector2 GRID_STARTPOSITION;
         public static gridItem[,] GRID_DATA;
         public static int GRID_WIDTH;
         public static int GRID_HEIGHT;
         public static int GRID_COLUMN;
         public static int GRID_ROW;
+
+        //player move
+        public static int playerStep = 0;//crowd use for check to walk back to origin position
+
+        //call when player move
+        public static void playerMove()
+        {
+            playerStep += 1;
+        }
 
         public static void addShadowArea(int j, int i)
         {

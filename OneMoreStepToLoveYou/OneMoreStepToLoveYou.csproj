@@ -42,6 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Entites\character.cs" />
+    <Compile Include="Entites\crowd.cs" />
     <Compile Include="Entites\gameManager.cs" />
     <Compile Include="Entites\gridItem.cs" />
     <Compile Include="Entites\player.cs" />

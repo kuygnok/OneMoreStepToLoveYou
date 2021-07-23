@@ -27,16 +27,79 @@ namespace OneMoreStepToLoveYou.Entites
         public void Update()
         {
             keyboard.GetState();
+            #region player move
+            //move left
             if (keyboard.HasBeenPressed(Keys.A))
-                moveLeft();
+            {
+                if (!gameManager.crowds.ContainsKey(m_gridPosition.left))
+                    moveLeft();
+                else if (
+                    gameManager.crowds.ContainsKey(m_gridPosition.left) &&
+                    gameManager.crowds[m_gridPosition.left].getNextGridType(gameManager.crowds[m_gridPosition.left].m_gridPosition.left) == gridType.Walkable
+                    )
+                {
+                    //crowd move
+                    gameManager.crowds[m_gridPosition.left].moveLeft();
+                    moveLeft();
+                    gameManager.crowds[m_gridPosition.left].m_moveStep = gameManager.playerStep;
+                }
+            }
+            //move right
             else if (keyboard.HasBeenPressed(Keys.D))
-                moveRight();
+            {
+                if (!gameManager.crowds.ContainsKey(m_gridPosition.right))
+                    moveRight();
+                else if (
+                    gameManager.crowds.ContainsKey(m_gridPosition.right) &&
+                    gameManager.crowds[m_gridPosition.right].getNextGridType(gameManager.crowds[m_gridPosition.right].m_gridPosition.right) == gridType.Walkable
+                    )
+                {
+                    //crowd move
+                    gameManager.crowds[m_gridPosition.right].moveRight();
+                    moveRight();
+                    gameManager.crowds[m_gridPosition.right].m_moveStep = gameManager.playerStep;
+                }
+            }
+            //move down
             else if (keyboard.HasBeenPressed(Keys.S))
-                moveDown();
+            {
+                if (!gameManager.crowds.ContainsKey(m_gridPosition.down))
+                    moveDown();
+                else if (
+                    gameManager.crowds.ContainsKey(m_gridPosition.down) &&
+                    gameManager.crowds[m_gridPosition.down].getNextGridType(gameManager.crowds[m_gridPosition.down].m_gridPosition.down) == gridType.Walkable
+                    )
+                {
+                    //crowd move
+                    gameManager.crowds[m_gridPosition.down].moveDown();
+                    moveDown();
+                    gameManager.crowds[m_gridPosition.down].m_moveStep = gameManager.playerStep;
+                }
+            }
+            //move up
             else if (keyboard.HasBeenPressed(Keys.W))
-                moveUp();
-
+            {
+                if (!gameManager.crowds.ContainsKey(m_gridPosition.up))
+                    moveUp();
+                else if (
+                    gameManager.crowds.ContainsKey(m_gridPosition.up) &&
+                    gameManager.crowds[m_gridPosition.up].getNextGridType(gameManager.crowds[m_gridPosition.up].m_gridPosition.up) == gridType.Walkable
+                    )
+                {
+                    //crowd move
+                    gameManager.crowds[m_gridPosition.up].moveUp();
+                    moveUp();
+                    gameManager.crowds[m_gridPosition.up].m_moveStep = gameManager.playerStep;
+                }
+            }
+            #endregion
             updatePosition();
+        }
+
+        public override void changePosition(gridPosition pos)
+        {
+            gameManager.playerMove();
+            base.changePosition(pos);
         }
 
         public void Draw(SpriteBatch spriteBatch)
