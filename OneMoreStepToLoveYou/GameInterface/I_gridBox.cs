@@ -83,6 +83,7 @@ namespace OneMoreStepToLoveYou.GameInterface
 
             originGridItem[1] = rect2;
             #endregion
+
             //add new grid
             for (int i = 0; i < row; i++)
             {

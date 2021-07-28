@@ -14,7 +14,7 @@ namespace OneMoreStepToLoveYou.Entites
         public int DrawOrder { get; set; }
         public int m_moveStep;
 
-        private int crowdMoveStep = 4;
+        private int crowdMoveStep = 5;
         public List<gridPosition> originPath = new List<gridPosition>();
 
         public crowd(Texture2D texture, gridPosition gridPos)
@@ -41,7 +41,10 @@ namespace OneMoreStepToLoveYou.Entites
 
         public void goBack()
         {
-            if (gameManager.playerStep - m_moveStep >= crowdMoveStep && originPath.Count > 0 && getNextGridType(originPath[originPath.Count - 1]) != gridType.Unwalkable)
+            if (gameManager.playerStep - m_moveStep >= crowdMoveStep && originPath.Count > 0 && 
+                getNextGridType(originPath[originPath.Count - 1]) != gridType.Unwalkable &&
+                getNextGridType(originPath[originPath.Count - 1]) != gridType.Crowd
+                )
             {
                 changePosition(originPath[originPath.Count - 1]);
                 originPath.RemoveAt(originPath.Count - 1);
@@ -60,8 +63,11 @@ namespace OneMoreStepToLoveYou.Entites
             if (nextPos.column < 0 || nextPos.column > gameManager.GRID_COLUMN - 1 || nextPos.row < 0 || nextPos.row > gameManager.GRID_ROW - 1)
                 return gridType.Unwalkable;
 
-            if (gameManager.GRID_DATA[nextPos.row, nextPos.column].type == gridType.Player || gameManager.GRID_DATA[nextPos.row, nextPos.column].type == gridType.Crowd)
+            if (gameManager.GRID_DATA[nextPos.row, nextPos.column].type == gridType.Player)
                 return gridType.Unwalkable;
+
+            if (gameManager.GRID_DATA[nextPos.row, nextPos.column].type == gridType.Crowd)
+                return gridType.Crowd;
 
             return gameManager.GRID_DATA[nextPos.row, nextPos.column].type;
         }

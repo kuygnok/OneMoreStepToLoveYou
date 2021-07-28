@@ -11,7 +11,7 @@ namespace OneMoreStepToLoveYou
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        I_sceneManager scene = new I_sceneManager();
+        public static I_sceneManager scene = new I_sceneManager();
         text debugText;
 
         public Game1()
@@ -39,25 +39,29 @@ namespace OneMoreStepToLoveYou
             debugText = new text(Content.Load<SpriteFont>("debugFont"), Color.Black, Vector2.Zero);
 
             //grid
-            scene.entites.Add(new I_gridBox(5, 10, Content.Load<SpriteFont>("debugFont"), graphics));
+            scene.entites.Add(new I_gridBox(6, 6, Content.Load<SpriteFont>("debugFont"), graphics));
             scene.entites[0].DrawOrder = 1;
-            gameManager.addShadowArea(1, 0);
-            gameManager.addShadowArea(1, 1);
-            gameManager.addShadowArea(1, 2);
-            gameManager.addShadowArea(1, 3);
-            gameManager.addShadowArea(2, 3);
-            gameManager.addShadowArea(2, 2);
+            gameManager.addShadowArea(5, 1);
+            gameManager.addShadowArea(5, 2);
+            gameManager.addShadowArea(5, 3);
+            gameManager.addShadowArea(5, 4);
+            gameManager.addShadowArea(5, 5);
+            gameManager.addShadowArea(3, 1);
+            gameManager.addShadowArea(4, 1);
 
-            gameManager.addShadowArea(3, 2);
-            gameManager.addShadowArea(3, 3);
             //player
-            scene.entites.Add(new player(Content.Load<Texture2D>("Player"), new gridPosition(5, 2)));
+            scene.entites.Add(new player(Content.Load<Texture2D>("qq"), new gridPosition(0, 4)));
             scene.entites[1].DrawOrder = 2;
-            //crowd
-            scene.entites.Add(new crowd(Content.Load<Texture2D>("Player"), new gridPosition(7, 2)));
+            //ya dob
+            scene.entites.Add(new yaDov(new gridPosition(0, 0), Content.Load<Texture2D>("ya")));
             scene.entites[2].DrawOrder = 2;
-            scene.entites.Add(new crowd(Content.Load<Texture2D>("Player"), new gridPosition(8, 2)));
-            scene.entites[3].DrawOrder = 2;
+            //crowd
+            scene.entites.Add(new crowd(Content.Load<Texture2D>("Player"), new gridPosition(1, 4)));
+            scene.entites[3].DrawOrder = 3;
+            scene.entites.Add(new crowd(Content.Load<Texture2D>("Player"), new gridPosition(1, 3)));
+            scene.entites[4].DrawOrder = 3;
+            scene.entites.Add(new crowd(Content.Load<Texture2D>("Player"), new gridPosition(1, 2)));
+            scene.entites[5].DrawOrder = 3;
             // TODO: use this.Content to load your game content here
         }
 

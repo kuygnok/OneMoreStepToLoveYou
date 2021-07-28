@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using OneMoreStepToLoveYou.Entites;
 
 namespace OneMoreStepToLoveYou
 {
@@ -17,6 +18,11 @@ namespace OneMoreStepToLoveYou
         public static Vector2 getCenterPoint(int width, int height)
         {
             return new Vector2(width / 2, height / 2);
+        }
+
+        public static Vector2 convertGridPosToVectorPos(gridPosition pos)
+        {
+            return new Vector2(pos.column * gameManager.GRID_WIDTH + gameManager.GRID_STARTPOSITION.X, pos.row * gameManager.GRID_HEIGHT + gameManager.GRID_STARTPOSITION.Y);
         }
     }
 }

@@ -48,6 +48,7 @@
     <Compile Include="Entites\player.cs" />
     <Compile Include="Entites\Sprite.cs" />
     <Compile Include="Entites\text.cs" />
+    <Compile Include="Entites\yaDov.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameInterface\I_gameInterface.cs" />
     <Compile Include="GameInterface\I_gridBox.cs" />

@@ -67,8 +67,9 @@ namespace OneMoreStepToLoveYou.Entites
         public static int GRID_COLUMN;
         public static int GRID_ROW;
 
-        //player move
+        //player
         public static int playerStep = 0;//crowd use for check to walk back to origin position
+        public static yaDov ya;
 
         //call when player move
         public static void playerMove()
