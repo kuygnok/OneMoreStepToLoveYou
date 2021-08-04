@@ -31,6 +31,8 @@ namespace OneMoreStepToLoveYou.Entites
 
         public void Update(float animator_elapsed)
         {
+            if (gameManager.is_PAUSE)
+                return;
             updatePosition();
         }
 

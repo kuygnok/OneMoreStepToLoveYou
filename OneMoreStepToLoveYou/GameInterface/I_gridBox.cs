@@ -20,8 +20,8 @@ namespace OneMoreStepToLoveYou.GameInterface
             //confingulation
             gameManager.GRID_ROW = row;
             gameManager.GRID_COLUMN = column;
-            gameManager.GRID_WIDTH = 100;
-            gameManager.GRID_HEIGHT = 100;
+            gameManager.GRID_WIDTH = 120;
+            gameManager.GRID_HEIGHT = 120;
             gameManager.GRID_STARTPOSITION = kaninKitRail.getCenterPoint(graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
             gameManager.GRID_STARTPOSITION -= kaninKitRail.getCenterPoint(column * gameManager.GRID_WIDTH, row * gameManager.GRID_HEIGHT);
             gameManager.GRID_DATA = new gridItem[row, column];

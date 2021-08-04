@@ -20,7 +20,8 @@ namespace OneMoreStepToLoveYou.Entites
         {
             animator = new AnimatedTexture(Vector2.Zero, 0, 1, 1);
             animator.Load(content, asset, frameCount, frameRow, framesPerSec);
-            this.position = kaninKitRail.getCenterPoint(kaninKitRail.convertGridPosToVectorPos(position), animator.frameWidht, animator.frameHeight);
+            this.position = gameManager.GRID_DATA[position.row, position.column].getCenterGridPosition;
+            this.position -=    kaninKitRail.getCenterPoint((int)animator.frameWidht, (int)animator.frameHeight);
             gameManager.pEarthPosition = position;
         }
 

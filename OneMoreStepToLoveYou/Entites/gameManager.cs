@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using OneMoreStepToLoveYou.GameInterface;
 
 namespace OneMoreStepToLoveYou.Entites
 {
@@ -58,6 +59,8 @@ namespace OneMoreStepToLoveYou.Entites
     #endregion
     public static class gameManager
     {
+        public static bool is_PAUSE = false;
+
         //grid
         public static Dictionary<gridPosition, crowd> crowds = new Dictionary<gridPosition, crowd>();
         public static Vector2 GRID_STARTPOSITION;
@@ -73,6 +76,9 @@ namespace OneMoreStepToLoveYou.Entites
 
         //pEarth
         public static gridPosition pEarthPosition;
+
+        //dialouge
+        public static I_dialouge dialouge;
 
         //call when player move
         public static void playerMove()

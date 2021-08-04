@@ -27,6 +27,9 @@ namespace OneMoreStepToLoveYou.Entites
 
         public void Update(float animator_elapsed)
         {
+            if (gameManager.is_PAUSE)
+                return;
+
             keyboard.GetState();
             #region player move
             //move left
@@ -221,6 +224,7 @@ namespace OneMoreStepToLoveYou.Entites
             {
                 //this.sprite.tintColor = Color.Black;
                 //transition
+                gameManager.dialouge.dialogeOn();
                 return;
             }
 

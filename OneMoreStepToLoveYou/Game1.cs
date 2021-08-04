@@ -35,7 +35,8 @@ namespace OneMoreStepToLoveYou
             //graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             //graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 100;
             graphics.PreferredBackBufferWidth = 1920;
-            graphics.PreferredBackBufferHeight = 1080 - 100;
+            graphics.PreferredBackBufferHeight = 1080;
+            graphics.IsFullScreen = true;
             this.IsMouseVisible = true;
             graphics.ApplyChanges();
             base.Initialize();
@@ -47,7 +48,7 @@ namespace OneMoreStepToLoveYou
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             //transition
-            transitionPanel = new Sprite(Content.Load<Texture2D>("transition"), Vector2.Zero, Color.Black);
+            transitionPanel = new Sprite(kaninKitRail.getBoxTexture(graphics, graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height, Color.Black, 0), Vector2.Zero, Color.Black);
 
             //debug texts
             debugText = new text(Content.Load<SpriteFont>("debugFont"), Color.Black, Vector2.Zero);
@@ -107,7 +108,7 @@ namespace OneMoreStepToLoveYou
             scene.Draw(spriteBatch);
             transitionPanel.Draw(spriteBatch);
 
-            string debugMessege = "";
+            /*string debugMessege = "";
             for (int i = 0; i < gameManager.GRID_ROW; i++)
             {
                 for (int j = 0; j < gameManager.GRID_COLUMN; j++)
@@ -117,7 +118,7 @@ namespace OneMoreStepToLoveYou
                 debugMessege += "\n";
             }
             debugMessege += "\n\n\n\n" + gameManager.playerStep;
-            debugText.drawFont(spriteBatch, debugMessege);
+            debugText.drawFont(spriteBatch, debugMessege);*/
             spriteBatch.End();
             base.Draw(gameTime);
         }
@@ -140,7 +141,7 @@ namespace OneMoreStepToLoveYou
             scene.entites[1].DrawOrder = 2;
 
             //player
-            scene.entites.Add(new player(Content.Load<Texture2D>("qq"), new gridPosition(0, 4)));
+            scene.entites.Add(new player(Content.Load<Texture2D>("qq"), new gridPosition(3, 0)));
             scene.entites[2].DrawOrder = 2;
             //crowd
             scene.entites.Add(new crowd(Content.Load<Texture2D>("Player"), new gridPosition(1, 4)));
@@ -152,6 +153,9 @@ namespace OneMoreStepToLoveYou
             //pEarth
             scene.entites.Add(new pEarth(new gridPosition(5, 0), Content, "CoketumpBreathe", 3, 1, 10));
             scene.entites[6].DrawOrder = 3;
+            //dialoge
+            scene.entites.Add(new I_dialouge(graphics));
+            scene.entites[7].DrawOrder = 10;
         }
     }
 }

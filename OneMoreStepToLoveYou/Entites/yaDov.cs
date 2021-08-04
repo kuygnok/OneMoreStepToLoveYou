@@ -16,7 +16,9 @@ namespace OneMoreStepToLoveYou.Entites
 
         public yaDov(gridPosition pos, Texture2D image)
         {
-            this.sprite = new Sprite(image, kaninKitRail.convertGridPosToVectorPos(pos), Color.White);
+            Vector2 position = gameManager.GRID_DATA[pos.row, pos.column].getCenterGridPosition;
+            position -= kaninKitRail.getCenterPoint(image.Width, image.Height);
+            this.sprite = new Sprite(image, position, Color.White);
             gameManager.ya = this;
         }
 
