@@ -25,7 +25,7 @@ namespace OneMoreStepToLoveYou.Entites
             sprite.position -= kaninKitRail.getCenterPoint(sprite.gameSprite.Width, sprite.gameSprite.Height);
         }
 
-        public void Update()
+        public void Update(float animator_elapsed)
         {
             keyboard.GetState();
             #region player move
@@ -217,6 +217,13 @@ namespace OneMoreStepToLoveYou.Entites
 
         public override void changePosition(gridPosition pos)
         {
+            if(pos.row == gameManager.pEarthPosition.row && pos.column == gameManager.pEarthPosition.column)
+            {
+                //this.sprite.tintColor = Color.Black;
+                //transition
+                return;
+            }
+
             base.changePosition(pos);
             gameManager.playerMove();
         }

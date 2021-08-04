@@ -33,7 +33,7 @@ namespace OneMoreStepToLoveYou.GameInterface
             Color colorB = new Color(42, 183, 155);
             int strokSize = 8;
             Texture2D[] originGridItem = new Texture2D[2];
-
+            /*
             Texture2D rect1 = new Texture2D(graphics.GraphicsDevice, gameManager.GRID_WIDTH, gameManager.GRID_HEIGHT);
             Color[] colorData = new Color[gameManager.GRID_WIDTH * gameManager.GRID_HEIGHT];
 
@@ -82,6 +82,9 @@ namespace OneMoreStepToLoveYou.GameInterface
             rect2.SetData(colorData);
 
             originGridItem[1] = rect2;
+            */
+            originGridItem[0] = kaninKitRail.getBoxTexture(graphics, gameManager.GRID_WIDTH, gameManager.GRID_HEIGHT, colorA, strokSize);
+            originGridItem[1] = kaninKitRail.getBoxTexture(graphics, gameManager.GRID_WIDTH, gameManager.GRID_HEIGHT, colorB, strokSize);
             #endregion
 
             //add new grid
@@ -100,7 +103,7 @@ namespace OneMoreStepToLoveYou.GameInterface
             }
         }
 
-        public void Update()
+        public void Update(float animator_elapsed)
         {
             //nothing
         }

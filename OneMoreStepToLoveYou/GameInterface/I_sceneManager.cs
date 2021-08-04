@@ -13,14 +13,14 @@ namespace OneMoreStepToLoveYou.GameInterface
         public List<I_gameInterface> entites = new List<I_gameInterface>();
         List<I_gameInterface> entitesRemove = new List<I_gameInterface>();
 
-        public void Update()
+        public void Update(float animator_elapsed)
         {
             foreach (I_gameInterface item in entites)
             {
                 if (entitesRemove.Contains(item))
                     continue;
 
-                item.Update();
+                item.Update(animator_elapsed);
             }
 
             foreach (I_gameInterface item in entitesRemove)

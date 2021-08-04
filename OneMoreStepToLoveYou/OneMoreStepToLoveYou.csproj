@@ -41,10 +41,12 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Entites\AnimatedTexture.cs" />
     <Compile Include="Entites\character.cs" />
     <Compile Include="Entites\crowd.cs" />
     <Compile Include="Entites\gameManager.cs" />
     <Compile Include="Entites\gridItem.cs" />
+    <Compile Include="Entites\pEarth.cs" />
     <Compile Include="Entites\player.cs" />
     <Compile Include="Entites\Sprite.cs" />
     <Compile Include="Entites\text.cs" />

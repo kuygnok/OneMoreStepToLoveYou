@@ -29,7 +29,7 @@ namespace OneMoreStepToLoveYou.Entites
             gameManager.crowds.Add(m_gridPosition, this);
         }
 
-        public void Update()
+        public void Update(float animator_elapsed)
         {
             updatePosition();
         }

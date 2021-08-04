@@ -25,7 +25,7 @@ namespace OneMoreStepToLoveYou.Entites
             sprite.Draw(spriteBatch);
         }
 
-        public void Update()
+        public void Update(float animator_elapsed)
         {
 
         }

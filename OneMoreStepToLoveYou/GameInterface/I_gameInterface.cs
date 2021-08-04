@@ -11,7 +11,7 @@ namespace OneMoreStepToLoveYou.GameInterface
     {
         int DrawOrder { get; set; }
 
-        void Update();
+        void Update(float animator_elapsed);
         void Draw(SpriteBatch spriteBatch);
     }
 }
