@@ -33,22 +33,22 @@ namespace OneMoreStepToLoveYou.Entites
             keyboard.GetState();
             #region player move
             //move left
-            if (keyboard.HasBeenPressed(Keys.A))
+            if (keyboard.HasBeenPressed(Keys.A) || keyboard.HasBeenPressed(Keys.Left))
             {
                 keyLeft();
             }
             //move right
-            else if (keyboard.HasBeenPressed(Keys.D))
+            else if (keyboard.HasBeenPressed(Keys.D) || keyboard.HasBeenPressed(Keys.Right))
             {
                 keyRight();
             }
             //move down
-            else if (keyboard.HasBeenPressed(Keys.S))
+            else if (keyboard.HasBeenPressed(Keys.S) || keyboard.HasBeenPressed(Keys.Down))
             {
                 keyDown();
             }
             //move up
-            else if (keyboard.HasBeenPressed(Keys.W))
+            else if (keyboard.HasBeenPressed(Keys.W) || keyboard.HasBeenPressed(Keys.Up))
             {
                 keyUp();
             }
