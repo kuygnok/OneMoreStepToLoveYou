@@ -23,6 +23,10 @@ namespace OneMoreStepToLoveYou
         bool is_fadeOut = true;
         bool is_fadeIn = false;
 
+        //camera
+        playerCamera camera;
+        public static bool is_CameraOn = false;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -36,7 +40,7 @@ namespace OneMoreStepToLoveYou
             //graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 100;
             graphics.PreferredBackBufferWidth = 1920;
             graphics.PreferredBackBufferHeight = 1080;
-            graphics.IsFullScreen = true;
+            //graphics.IsFullScreen = true;
             this.IsMouseVisible = true;
             graphics.ApplyChanges();
             base.Initialize();
@@ -46,6 +50,9 @@ namespace OneMoreStepToLoveYou
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            //camera
+            camera = new playerCamera();
 
             //transition
             transitionPanel = new Sprite(kaninKitRail.getBoxTexture(graphics, graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height, Color.Black, 0), Vector2.Zero, Color.Black);
@@ -96,6 +103,9 @@ namespace OneMoreStepToLoveYou
             {
                 scene.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
             }
+
+            if(is_CameraOn)
+                camera.Follow(gameManager.M_PLAYER.sprite);
             base.Update(gameTime);
         }
 
@@ -104,10 +114,13 @@ namespace OneMoreStepToLoveYou
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
-            scene.Draw(spriteBatch);
-            transitionPanel.Draw(spriteBatch);
 
+            //draw component
+            if (is_CameraOn)
+                spriteBatch.Begin(transformMatrix: camera.Transform);
+            else
+                spriteBatch.Begin();
+            scene.Draw(spriteBatch);
             /*string debugMessege = "";
             for (int i = 0; i < gameManager.GRID_ROW; i++)
             {
@@ -120,28 +133,27 @@ namespace OneMoreStepToLoveYou
             debugMessege += "\n\n\n\n" + gameManager.playerStep;
             debugText.drawFont(spriteBatch, debugMessege);*/
             spriteBatch.End();
+
+            //draw transition
+            spriteBatch.Begin();
+            transitionPanel.Draw(spriteBatch);
+            spriteBatch.End();
+
             base.Draw(gameTime);
         }
 
         private void scene_LV1()
         {
             //grid
-            scene.entites.Add(new I_gridBox(6, 6, Content.Load<SpriteFont>("debugFont"), graphics));
+            scene.entites.Add(new I_gridBox(15, 6, Content.Load<SpriteFont>("debugFont"), graphics));
             scene.entites[0].DrawOrder = 1;
-            gameManager.addShadowArea(5, 1);
-            gameManager.addShadowArea(5, 2);
-            gameManager.addShadowArea(5, 3);
-            gameManager.addShadowArea(5, 4);
-            gameManager.addShadowArea(5, 5);
-            gameManager.addShadowArea(3, 1);
-            gameManager.addShadowArea(4, 1);
 
             //ya dob
             scene.entites.Add(new yaDov(new gridPosition(0, 0), Content.Load<Texture2D>("ya")));
             scene.entites[1].DrawOrder = 2;
 
             //player
-            scene.entites.Add(new player(Content.Load<Texture2D>("qq"), new gridPosition(3, 0)));
+            scene.entites.Add(new player(Content.Load<Texture2D>("qq"), new gridPosition(0, 5)));
             scene.entites[2].DrawOrder = 2;
             //crowd
             scene.entites.Add(new crowd(Content.Load<Texture2D>("Player"), new gridPosition(1, 4)));
@@ -154,8 +166,8 @@ namespace OneMoreStepToLoveYou
             scene.entites.Add(new pEarth(new gridPosition(5, 0), Content, "CoketumpBreathe", 3, 1, 10));
             scene.entites[6].DrawOrder = 3;
             //dialoge
-            scene.entites.Add(new I_dialouge(graphics));
-            scene.entites[7].DrawOrder = 10;
+            /*scene.entites.Add(new I_dialouge(graphics));
+            scene.entites[7].DrawOrder = 10;*/
         }
     }
 }

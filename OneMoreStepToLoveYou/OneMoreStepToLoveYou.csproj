@@ -48,6 +48,7 @@
     <Compile Include="Entites\gridItem.cs" />
     <Compile Include="Entites\pEarth.cs" />
     <Compile Include="Entites\player.cs" />
+    <Compile Include="Entites\playerCamera.cs" />
     <Compile Include="Entites\Sprite.cs" />
     <Compile Include="Entites\text.cs" />
     <Compile Include="Entites\yaDov.cs" />

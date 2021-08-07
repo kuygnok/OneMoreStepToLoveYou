@@ -18,11 +18,13 @@ namespace OneMoreStepToLoveYou.Entites
         public player(Texture2D texture, gridPosition gridPos)
         {
             this.type = gridType.Player;
-            sprite = new Sprite(texture, Vector2.Zero, Color.White);
+            sprite = new Sprite(texture, gameManager.GRID_DATA[m_gridPosition.row, m_gridPosition.column].getCenterGridPosition, Color.White);
             m_gridPosition = gridPos;
             gameManager.GRID_DATA[m_gridPosition.row, m_gridPosition.column].type = gridType.Player;
             sprite.position = gameManager.GRID_DATA[m_gridPosition.row, m_gridPosition.column].getCenterGridPosition;
             sprite.position -= kaninKitRail.getCenterPoint(sprite.gameSprite.Width, sprite.gameSprite.Height);
+
+            gameManager.M_PLAYER = this;
         }
 
         public void Update(float animator_elapsed)
@@ -224,7 +226,7 @@ namespace OneMoreStepToLoveYou.Entites
             {
                 //this.sprite.tintColor = Color.Black;
                 //transition
-                gameManager.dialouge.dialogeOn();
+                //gameManager.dialouge.dialogeOn();
                 return;
             }
 

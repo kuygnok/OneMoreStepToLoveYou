@@ -22,8 +22,19 @@ namespace OneMoreStepToLoveYou.GameInterface
             gameManager.GRID_COLUMN = column;
             gameManager.GRID_WIDTH = 120;
             gameManager.GRID_HEIGHT = 120;
-            gameManager.GRID_STARTPOSITION = kaninKitRail.getCenterPoint(graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
-            gameManager.GRID_STARTPOSITION -= kaninKitRail.getCenterPoint(column * gameManager.GRID_WIDTH, row * gameManager.GRID_HEIGHT);
+            if (graphics.PreferredBackBufferHeight > gameManager.GRID_HEIGHT * row)
+            {
+                gameManager.GRID_STARTPOSITION = kaninKitRail.getCenterPoint(graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
+                gameManager.GRID_STARTPOSITION -= kaninKitRail.getCenterPoint(column * gameManager.GRID_WIDTH, row * gameManager.GRID_HEIGHT);
+                Game1.is_CameraOn = false;
+            }
+            else
+            {
+                gameManager.GRID_STARTPOSITION = kaninKitRail.getCenterPoint(graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
+                gameManager.GRID_STARTPOSITION -= kaninKitRail.getCenterPoint(column * gameManager.GRID_WIDTH, row * gameManager.GRID_HEIGHT);
+                gameManager.GRID_STARTPOSITION.Y -= (gameManager.GRID_HEIGHT * row) - graphics.PreferredBackBufferHeight;
+                Game1.is_CameraOn = true;
+            }
             gameManager.GRID_DATA = new gridItem[row, column];
             debugText = new text[row, column];
 

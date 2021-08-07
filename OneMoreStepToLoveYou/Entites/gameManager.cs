@@ -73,6 +73,7 @@ namespace OneMoreStepToLoveYou.Entites
         //player
         public static int playerStep = 0;//crowd use for check to walk back to origin position
         public static yaDov ya;
+        public static player M_PLAYER;
 
         //pEarth
         public static gridPosition pEarthPosition;
