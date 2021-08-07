@@ -145,7 +145,7 @@ namespace OneMoreStepToLoveYou
         private void scene_LV1()
         {
             //grid
-            scene.entites.Add(new I_gridBox(15, 6, Content.Load<SpriteFont>("debugFont"), graphics));
+            scene.entites.Add(new I_gridBox(6, 6, Content.Load<SpriteFont>("debugFont"), graphics));
             scene.entites[0].DrawOrder = 1;
 
             //ya dob
