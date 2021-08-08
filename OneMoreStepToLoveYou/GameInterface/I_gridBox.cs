@@ -20,10 +20,21 @@ namespace OneMoreStepToLoveYou.GameInterface
             //confingulation
             gameManager.GRID_ROW = row;
             gameManager.GRID_COLUMN = column;
-            gameManager.GRID_WIDTH = 100;
-            gameManager.GRID_HEIGHT = 100;
-            gameManager.GRID_STARTPOSITION = kaninKitRail.getCenterPoint(graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
-            gameManager.GRID_STARTPOSITION -= kaninKitRail.getCenterPoint(column * gameManager.GRID_WIDTH, row * gameManager.GRID_HEIGHT);
+            gameManager.GRID_WIDTH = 120;
+            gameManager.GRID_HEIGHT = 120;
+            if (graphics.PreferredBackBufferHeight > gameManager.GRID_HEIGHT * row)
+            {
+                gameManager.GRID_STARTPOSITION = kaninKitRail.getCenterPoint(graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
+                gameManager.GRID_STARTPOSITION -= kaninKitRail.getCenterPoint(column * gameManager.GRID_WIDTH, row * gameManager.GRID_HEIGHT);
+                Game1.is_CameraOn = false;
+            }
+            else
+            {
+                gameManager.GRID_STARTPOSITION = kaninKitRail.getCenterPoint(graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
+                gameManager.GRID_STARTPOSITION -= kaninKitRail.getCenterPoint(column * gameManager.GRID_WIDTH, row * gameManager.GRID_HEIGHT);
+                gameManager.GRID_STARTPOSITION.Y -= (gameManager.GRID_HEIGHT * row) - graphics.PreferredBackBufferHeight;
+                Game1.is_CameraOn = true;
+            }
             gameManager.GRID_DATA = new gridItem[row, column];
             debugText = new text[row, column];
 
@@ -33,7 +44,7 @@ namespace OneMoreStepToLoveYou.GameInterface
             Color colorB = new Color(42, 183, 155);
             int strokSize = 8;
             Texture2D[] originGridItem = new Texture2D[2];
-
+            /*
             Texture2D rect1 = new Texture2D(graphics.GraphicsDevice, gameManager.GRID_WIDTH, gameManager.GRID_HEIGHT);
             Color[] colorData = new Color[gameManager.GRID_WIDTH * gameManager.GRID_HEIGHT];
 
@@ -82,6 +93,9 @@ namespace OneMoreStepToLoveYou.GameInterface
             rect2.SetData(colorData);
 
             originGridItem[1] = rect2;
+            */
+            originGridItem[0] = kaninKitRail.getBoxTexture(graphics, gameManager.GRID_WIDTH, gameManager.GRID_HEIGHT, colorA, strokSize);
+            originGridItem[1] = kaninKitRail.getBoxTexture(graphics, gameManager.GRID_WIDTH, gameManager.GRID_HEIGHT, colorB, strokSize);
             #endregion
 
             //add new grid
@@ -100,7 +114,7 @@ namespace OneMoreStepToLoveYou.GameInterface
             }
         }
 
-        public void Update()
+        public void Update(float animator_elapsed)
         {
             //nothing
         }

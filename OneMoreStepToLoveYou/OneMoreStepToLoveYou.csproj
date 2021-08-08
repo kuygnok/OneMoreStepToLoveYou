@@ -41,15 +41,19 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Entites\AnimatedTexture.cs" />
     <Compile Include="Entites\character.cs" />
     <Compile Include="Entites\crowd.cs" />
     <Compile Include="Entites\gameManager.cs" />
     <Compile Include="Entites\gridItem.cs" />
+    <Compile Include="Entites\pEarth.cs" />
     <Compile Include="Entites\player.cs" />
+    <Compile Include="Entites\playerCamera.cs" />
     <Compile Include="Entites\Sprite.cs" />
     <Compile Include="Entites\text.cs" />
     <Compile Include="Entites\yaDov.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="GameInterface\I_dialouge.cs" />
     <Compile Include="GameInterface\I_gameInterface.cs" />
     <Compile Include="GameInterface\I_gridBox.cs" />
     <Compile Include="GameInterface\I_sceneManager.cs" />

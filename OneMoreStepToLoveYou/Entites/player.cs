@@ -18,34 +18,39 @@ namespace OneMoreStepToLoveYou.Entites
         public player(Texture2D texture, gridPosition gridPos)
         {
             this.type = gridType.Player;
-            sprite = new Sprite(texture, Vector2.Zero, Color.White);
+            sprite = new Sprite(texture, gameManager.GRID_DATA[m_gridPosition.row, m_gridPosition.column].getCenterGridPosition, Color.White);
             m_gridPosition = gridPos;
             gameManager.GRID_DATA[m_gridPosition.row, m_gridPosition.column].type = gridType.Player;
             sprite.position = gameManager.GRID_DATA[m_gridPosition.row, m_gridPosition.column].getCenterGridPosition;
             sprite.position -= kaninKitRail.getCenterPoint(sprite.gameSprite.Width, sprite.gameSprite.Height);
+
+            gameManager.M_PLAYER = this;
         }
 
-        public void Update()
+        public void Update(float animator_elapsed)
         {
+            if (gameManager.is_PAUSE)
+                return;
+
             keyboard.GetState();
             #region player move
             //move left
-            if (keyboard.HasBeenPressed(Keys.A))
+            if (keyboard.HasBeenPressed(Keys.A) || keyboard.HasBeenPressed(Keys.Left))
             {
                 keyLeft();
             }
             //move right
-            else if (keyboard.HasBeenPressed(Keys.D))
+            else if (keyboard.HasBeenPressed(Keys.D) || keyboard.HasBeenPressed(Keys.Right))
             {
                 keyRight();
             }
             //move down
-            else if (keyboard.HasBeenPressed(Keys.S))
+            else if (keyboard.HasBeenPressed(Keys.S) || keyboard.HasBeenPressed(Keys.Down))
             {
                 keyDown();
             }
             //move up
-            else if (keyboard.HasBeenPressed(Keys.W))
+            else if (keyboard.HasBeenPressed(Keys.W) || keyboard.HasBeenPressed(Keys.Up))
             {
                 keyUp();
             }
@@ -217,6 +222,14 @@ namespace OneMoreStepToLoveYou.Entites
 
         public override void changePosition(gridPosition pos)
         {
+            if(pos.row == gameManager.pEarthPosition.row && pos.column == gameManager.pEarthPosition.column)
+            {
+                //this.sprite.tintColor = Color.Black;
+                //transition
+                //gameManager.dialouge.dialogeOn();
+                return;
+            }
+
             base.changePosition(pos);
             gameManager.playerMove();
         }
