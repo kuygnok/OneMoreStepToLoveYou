@@ -14,6 +14,14 @@ namespace OneMoreStepToLoveYou.Entites
         public Vector2 position;
         public Color tintColor;
 
+        public Rectangle spriteBox
+        {
+            get
+            {
+                return new Rectangle((int)position.X, (int)position.Y, gameSprite.Width, gameSprite.Height);
+            }
+        }
+
         public Sprite(Texture2D gameSprite, Vector2 position, Color tintColor)
         {
             this.gameSprite = gameSprite;
@@ -24,6 +32,11 @@ namespace OneMoreStepToLoveYou.Entites
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(gameSprite, position, tintColor);
+        }
+
+        public void Draw(SpriteBatch spriteBatch, float scale)
+        {
+            spriteBatch.Draw(gameSprite, position, null, tintColor, 0, Vector2.Zero, scale, SpriteEffects.None, 1);
         }
     }
 }

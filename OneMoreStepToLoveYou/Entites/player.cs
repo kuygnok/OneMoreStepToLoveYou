@@ -226,7 +226,8 @@ namespace OneMoreStepToLoveYou.Entites
             {
                 //this.sprite.tintColor = Color.Black;
                 //transition
-                //gameManager.dialouge.dialogeOn();
+                gameManager.dialouge.dialogeOn();
+                //Game1.changeSceneTo(2);
                 return;
             }
 

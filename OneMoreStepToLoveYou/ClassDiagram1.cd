@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OneMoreStepToLoveYou.Entites.AnimatedTexture" Collapsed="true">
+    <Position X="23.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAKggAABAAAABIEAAQMAEIAAAAhARAAg4gAgAEkAAgE=</HashCode>
+      <FileName>Entites\AnimatedTexture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OneMoreStepToLoveYou.Entites.character">
+    <Position X="10.25" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAAAEAABEAAAAAAAAgAAAAAAABABACAAAABACEAAAAA=</HashCode>
+      <FileName>Entites\character.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OneMoreStepToLoveYou.Entites.crowd">
+    <Position X="9" Y="9.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAQAAAAAAAAABgAAAAAAAAAAAAAAAAQwAAABAAAAAAA=</HashCode>
+      <FileName>Entites\crowd.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OneMoreStepToLoveYou.Entites.gameManager">
+    <Position X="23.5" Y="5.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ABEAAIAACQAABgAAECAAIAAARAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Entites\gameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OneMoreStepToLoveYou.Entites.gridItem">
+    <Position X="16.25" Y="12.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAEAAAAAAAAAAAABABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entites\gridItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OneMoreStepToLoveYou.Entites.pEarth">
+    <Position X="14" Y="9.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BAQAAAAAAAAAAgAAAAAAIAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Entites\pEarth.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OneMoreStepToLoveYou.Entites.player">
+    <Position X="11.5" Y="9.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAQAAAAAAAgACgAAAIAAAACAACAEAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Entites\player.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OneMoreStepToLoveYou.Entites.playerCamera" Collapsed="true">
+    <Position X="27" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Entites\playerCamera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OneMoreStepToLoveYou.Entites.Sprite" Collapsed="true">
+    <Position X="25.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAACAAAIAAAAAAAAAAAAAIAAAAAAAQ=</HashCode>
+      <FileName>Entites\Sprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OneMoreStepToLoveYou.Entites.text" Collapsed="true">
+    <Position X="23.5" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAAACAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entites\text.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OneMoreStepToLoveYou.Entites.yaDov">
+    <Position X="20.5" Y="9.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAABAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Entites\yaDov.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OneMoreStepToLoveYou.GameInterface.I_dialouge">
+    <Position X="18.25" Y="9.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAZAAQAQABAAEgAIgAgAAAgAAAAAAFAgCACAAAAAAAI=</HashCode>
+      <FileName>GameInterface\I_dialouge.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OneMoreStepToLoveYou.GameInterface.I_gridBox">
+    <Position X="16.25" Y="9.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AgQAAAAAAAAAAgAAAAAAAAAAAAAAAAAgAAAAAAAAEAA=</HashCode>
+      <FileName>GameInterface\I_gridBox.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OneMoreStepToLoveYou.GameInterface.I_sceneManager">
+    <Position X="16.75" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAABAAAAAAAAAAQAAgAAAAAAAA=</HashCode>
+      <FileName>GameInterface\I_sceneManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OneMoreStepToLoveYou.kaninKitRail" Collapsed="true">
+    <Position X="25.25" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQABAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>kaninKitRail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OneMoreStepToLoveYou.keyboard">
+    <Position X="26.25" Y="7.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgAEAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAIAAAg=</HashCode>
+      <FileName>keyboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OneMoreStepToLoveYou.Game1">
+    <Position X="20.5" Y="3" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>gAQAEEAMAgAAAwEAAAAAIJAACAgAAAgEAAAAAAAAECQ=</HashCode>
+      <FileName>Game1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="OneMoreStepToLoveYou.Entites.gridPosition">
+    <Position X="26.25" Y="9.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAACQAAIAAAAAAAAAgAAgAA=</HashCode>
+      <FileName>Entites\gameManager.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="OneMoreStepToLoveYou.GameInterface.dialouge">
+    <Position X="18.25" Y="15.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAkAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameInterface\I_dialouge.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="OneMoreStepToLoveYou.GameInterface.I_gameInterface">
+    <Position X="14.75" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>GameInterface\I_gameInterface.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="OneMoreStepToLoveYou.Entites.gridType">
+    <Position X="26.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAQAAAAA=</HashCode>
+      <FileName>Entites\gameManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
