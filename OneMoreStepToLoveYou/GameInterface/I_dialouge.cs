@@ -59,8 +59,6 @@ namespace OneMoreStepToLoveYou.GameInterface
             BG_lower = new Sprite(kaninKitRail.getBoxTexture(graphics, (int)sceneSize.X, (int)sceneSize.Y / 2, Color.White, 0), startPoint + new Vector2(0, 450), Color.White * 0);
             BG_midder = new Sprite(kaninKitRail.getBoxTexture(graphics, (int)sceneSize.X, (int)sceneSize.Y, Color.Black, 0), startPoint, Color.White * 0);
             characterSprite = new Sprite(null, Vector2.Zero, Color.White);
-
-            gameManager.dialouge = this;
         }
 
         public void Update(float animator_elapsed)
