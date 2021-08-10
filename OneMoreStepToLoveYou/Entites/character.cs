@@ -11,7 +11,7 @@ namespace OneMoreStepToLoveYou.Entites
     {
         public Sprite sprite;
         public gridPosition m_gridPosition;
-        public Vector2 targetPosition;
+        private Vector2 targetPosition;
         private int moveSpeed = 8;
         public bool is_move = false;
         public gridType type;

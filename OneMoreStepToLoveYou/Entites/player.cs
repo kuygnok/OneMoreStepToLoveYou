@@ -33,11 +33,7 @@ namespace OneMoreStepToLoveYou.Entites
                 return;
 
             keyboard.GetState();
-            #region player move            
-            updatePosition();
-            if (is_move && Vector2.Distance(sprite.position, targetPosition) > 5f)
-                return;
-                
+            #region player move
             //move left
             if (keyboard.HasBeenPressed(Keys.A) || keyboard.HasBeenPressed(Keys.Left))
             {
@@ -60,7 +56,7 @@ namespace OneMoreStepToLoveYou.Entites
             }
             #endregion
             checkCollectYa();
-
+            updatePosition();
         }
 
         private void keyUp()
@@ -230,8 +226,7 @@ namespace OneMoreStepToLoveYou.Entites
             {
                 //this.sprite.tintColor = Color.Black;
                 //transition
-                Game1.dialouge.dialogeOn();
-                //Game1.changeSceneTo(2);
+                //gameManager.dialouge.dialogeOn();
                 return;
             }
 
