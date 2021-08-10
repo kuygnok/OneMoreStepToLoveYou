@@ -78,9 +78,6 @@ namespace OneMoreStepToLoveYou.Entites
         //pEarth
         public static gridPosition pEarthPosition;
 
-        //dialouge
-        public static I_dialouge dialouge;
-
         //call when player move
         public static void playerMove()
         {
